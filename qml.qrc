@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/navigation/BottomNavigationItem.qml</file>
+        <file>qml/navigation/BottomNavigationBar.qml</file>
+        <file>assets/icons/readTagGreen.png</file>
+        <file>assets/icons/readTagWhite.png</file>
+        <file>assets/icons/saveTagGreen.png</file>
+        <file>assets/icons/saveTagWhite.png</file>
+        <file>assets/icons/timerGreen.png</file>
+        <file>assets/icons/timerWhite.png</file>
+        <file>qml/Theme.qml</file>
+        <file>qml/main.qml</file>
+        <file>qml/MainView.qml</file>
+        <file>qml/pages/ReadTagPage.qml</file>
+        <file>qml/pages/SaveTagPage.qml</file>
+        <file>qml/pages/TimerPage.qml</file>
+        <file>assets/bake.png</file>
+        <file>assets/alarm.wav</file>
+        <file>qml/controls/CustomButton.qml</file>
+        <file>qml/controls/CustomPopup.qml</file>
+        <file>qml/controls/CustomTumbler.qml</file>
+        <file>qml/controls/PulsatingImage.qml</file>
+    </qresource>
+</RCC>
