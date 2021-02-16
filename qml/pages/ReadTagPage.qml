@@ -59,10 +59,8 @@ Item {
     target: nfcManager
     enabled: root.visible
 
-    function onTagFound(dishname, seconds) {
-      console.log("dishname: " + dishname)
-      console.log("seconds: seconds")
-      root.tagFound(dishname, seconds)
+    function onRecordChanged(record) {
+      root.tagFound(record.dishName, record.seconds)
     }
 
     function onNfcError(error) {

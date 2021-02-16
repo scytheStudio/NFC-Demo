@@ -128,7 +128,7 @@ void NFCManager::ndefMessageRead(const QNdefMessage &message)
     m_request = QNearFieldTarget::RequestId();
 
     if (recordFound) {
-        emit tagFound(m_record.dishName, m_record.seconds);
+        emit recordChanged(m_record);
     } else {
         emit nfcError("Tag does not contain desired record or is malformed");
     }
@@ -186,6 +186,11 @@ void NFCManager::targetError(QNearFieldTarget::Error error, const QNearFieldTarg
             emit nfcError(errorMsg);
         }
     }
+}
+
+Record NFCManager::record() const
+{
+    return m_record;
 }
 
 bool Record::parseNdefMessage(const QNdefNfcTextRecord &record)

@@ -10,18 +10,25 @@ class QNdefMessage;
 class QNdefNfcTextRecord;
 
 struct Record {
+    Q_GADGET
+    Q_PROPERTY(int seconds MEMBER seconds)
+    Q_PROPERTY(QString dishName MEMBER dishName)
+
+public:
     int seconds = 0;
     QString dishName = "";
 
     bool parseNdefMessage(const QNdefNfcTextRecord &record);
     QNdefMessage generateNdefMessage() const;
 };
+Q_DECLARE_METATYPE(Record)
 
 class NFCManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool hasTagInRange READ hasTagInRange NOTIFY hasTagInRangeChanged)
     Q_PROPERTY(ActionType actionType READ actionType WRITE setActionType NOTIFY actionTypeChanged)
+    Q_PROPERTY(Record record READ record NOTIFY recordChanged)
     QML_ELEMENT
 
 public:
@@ -37,6 +44,7 @@ public:
 
     bool hasTagInRange() const;
     ActionType actionType() const;
+    Record record() const;
 
 public slots:
     void startReading();
@@ -47,6 +55,7 @@ signals:
     void hasTagInRangeChanged(bool hasTagInRange);
     void actionTypeChanged(ActionType actionType);
     void tagFound(const QString &dishName, int seconds);
+    void recordChanged(const Record &record);
 
     void wroteSuccessfully();
 
