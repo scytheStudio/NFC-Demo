@@ -54,11 +54,9 @@ public slots:
 signals:
     void hasTagInRangeChanged(bool hasTagInRange);
     void actionTypeChanged(ActionType actionType);
-    void tagFound(const QString &dishName, int seconds);
     void recordChanged(const Record &record);
 
     void wroteSuccessfully();
-
     void nfcError(const QString &error);
 
 private slots:
@@ -70,7 +68,7 @@ private slots:
 
     void ndefMessageRead(const QNdefMessage &message);
     void ndefMessageWritten();
-    void targetError(QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id);
+    void handleTargetError(QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id);
 
 private:
     bool m_hasTagInRange = false;

@@ -86,20 +86,20 @@ void NFCManager::targetDetected(QNearFieldTarget *target)
         break;
     case Reading:
         connect(target, &QNearFieldTarget::ndefMessageRead, this, &NFCManager::ndefMessageRead);
-        connect(target, &QNearFieldTarget::error, this, &NFCManager::targetError);
+        connect(target, &QNearFieldTarget::error, this, &NFCManager::handleTargetError);
 
         m_request = target->readNdefMessages();
-        if (!m_request.isValid()) { // cannot read messages
-            targetError(QNearFieldTarget::NdefReadError, m_request);
+        if (!m_request.isValid()) {
+            handleTargetError(QNearFieldTarget::NdefReadError, m_request);
         }
         break;
     case Writing:
         connect(target, &QNearFieldTarget::ndefMessagesWritten, this, &NFCManager::ndefMessageWritten);
-        connect(target, &QNearFieldTarget::error, this, &NFCManager::targetError);
+        connect(target, &QNearFieldTarget::error, this, &NFCManager::handleTargetError);
 
         m_request = target->writeNdefMessages(QList<QNdefMessage>() << m_record.generateNdefMessage());
-        if (!m_request.isValid()) { // cannot write messages
-            targetError(QNearFieldTarget::NdefWriteError, m_request);
+        if (!m_request.isValid()) {
+            handleTargetError(QNearFieldTarget::NdefWriteError, m_request);
         }
         break;
     }
@@ -144,7 +144,7 @@ void NFCManager::ndefMessageWritten()
     emit wroteSuccessfully();
 }
 
-void NFCManager::targetError(QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id)
+void NFCManager::handleTargetError(QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id)
 {
     if (m_request == id) {
 
