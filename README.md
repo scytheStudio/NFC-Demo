@@ -1,4 +1,5 @@
 # NFC Demo
+[![Scythe Studio](./pictures/banner.png)](https://scythe-studio.com/blog/nfc-in-qt-qml-application)
 This demo presents how to use NFC for communication using Qt framework on mobile platform. Application has simple UI and logic that can be an example of creative NFC usage. Demo presents following features:
 
 - NFC tags detection
