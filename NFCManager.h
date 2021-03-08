@@ -63,11 +63,11 @@ private slots:
     void setActionType(ActionType actionType);
     void setHasTagInRange(bool hasTagInRange);
 
-    void targetDetected(QNearFieldTarget *target);
-    void targetLost(QNearFieldTarget *target);
+    void onTargetDetected(QNearFieldTarget *target);
+    void onTargetLost(QNearFieldTarget *target);
 
-    void ndefMessageRead(const QNdefMessage &message);
-    void ndefMessageWritten();
+    void onNdefMessageRead(const QNdefMessage &message);
+    void onNdefMessageWritten();
     void handleTargetError(QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id);
 
 private:

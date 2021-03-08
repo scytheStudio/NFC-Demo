@@ -16,11 +16,10 @@ NFCManager::NFCManager(QObject *parent)
     : QObject(parent)
     , m_manager(new QNearFieldManager(this))
 {
-
     connect(m_manager, &QNearFieldManager::targetDetected,
-            this, &NFCManager::targetDetected);
+            this, &NFCManager::onTargetDetected);
     connect(m_manager, &QNearFieldManager::targetLost,
-            this, &NFCManager::targetLost);
+            this, &NFCManager::onTargetLost);
 }
 
 bool NFCManager::hasTagInRange() const
@@ -77,7 +76,7 @@ void NFCManager::saveRecord(const QString &dishName, int seconds)
     m_manager->startTargetDetection();
 }
 
-void NFCManager::targetDetected(QNearFieldTarget *target)
+void NFCManager::onTargetDetected(QNearFieldTarget *target)
 {
     setHasTagInRange(true);
 
@@ -85,7 +84,7 @@ void NFCManager::targetDetected(QNearFieldTarget *target)
     case None:
         break;
     case Reading:
-        connect(target, &QNearFieldTarget::ndefMessageRead, this, &NFCManager::ndefMessageRead);
+        connect(target, &QNearFieldTarget::ndefMessageRead, this, &NFCManager::onNdefMessageRead);
         connect(target, &QNearFieldTarget::error, this, &NFCManager::handleTargetError);
 
         m_request = target->readNdefMessages();
@@ -94,7 +93,7 @@ void NFCManager::targetDetected(QNearFieldTarget *target)
         }
         break;
     case Writing:
-        connect(target, &QNearFieldTarget::ndefMessagesWritten, this, &NFCManager::ndefMessageWritten);
+        connect(target, &QNearFieldTarget::ndefMessagesWritten, this, &NFCManager::onNdefMessageWritten);
         connect(target, &QNearFieldTarget::error, this, &NFCManager::handleTargetError);
 
         m_request = target->writeNdefMessages(QList<QNdefMessage>() << m_record.generateNdefMessage());
@@ -105,13 +104,13 @@ void NFCManager::targetDetected(QNearFieldTarget *target)
     }
 }
 
-void NFCManager::targetLost(QNearFieldTarget *target)
+void NFCManager::onTargetLost(QNearFieldTarget *target)
 {
     setHasTagInRange(false);
     target->deleteLater();
 }
 
-void NFCManager::ndefMessageRead(const QNdefMessage &message)
+void NFCManager::onNdefMessageRead(const QNdefMessage &message)
 {
     bool recordFound = false;
     for (const QNdefRecord &record : message) {
@@ -123,8 +122,7 @@ void NFCManager::ndefMessageRead(const QNdefMessage &message)
         }
     }
 
-    m_manager->setTargetAccessModes(QNearFieldManager::NoTargetAccess);
-    m_manager->stopTargetDetection();
+    stopDetecting();
     m_request = QNearFieldTarget::RequestId();
 
     if (recordFound) {
@@ -134,13 +132,11 @@ void NFCManager::ndefMessageRead(const QNdefMessage &message)
     }
 }
 
-void NFCManager::ndefMessageWritten()
+void NFCManager::onNdefMessageWritten()
 {
-    m_manager->setTargetAccessModes(QNearFieldManager::NoTargetAccess);
-    m_manager->stopTargetDetection();
+    stopDetecting();
     m_request = QNearFieldTarget::RequestId();
 
-    setActionType(ActionType::None);
     emit wroteSuccessfully();
 }
 

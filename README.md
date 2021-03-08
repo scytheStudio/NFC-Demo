@@ -49,11 +49,11 @@ signals:
 
 private slots:
     // ...
-    void targetDetected(QNearFieldTarget *target);
-    void targetLost(QNearFieldTarget *target);
+    void onTargetDetected(QNearFieldTarget *target);
+    void onTargetLost(QNearFieldTarget *target);
 
-    void ndefMessageRead(const QNdefMessage &message);
-    void ndefMessageWritten();
+    void onNdefMessageRead(const QNdefMessage &message);
+    void onNdefMessageWritten();
     void handleTargetError(QNearFieldTarget::Error error, const QNearFieldTarget::RequestId &id);
 
 private:
@@ -75,9 +75,9 @@ NFCManager::NFCManager(QObject *parent)
 {
 
     connect(m_manager, &QNearFieldManager::targetDetected,
-            this, &NFCManager::targetDetected);
+            this, &NFCManager::onTargetDetected);
     connect(m_manager, &QNearFieldManager::targetLost,
-            this, &NFCManager::targetLost);
+            this, &NFCManager::onTargetLost);
 }
 ```
 
