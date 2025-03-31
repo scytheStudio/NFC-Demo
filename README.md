@@ -9,7 +9,7 @@ This demo presents how to use NFC for communication using Qt framework on mobile
 
 ---
 
-[![Scythe Studio](./pictures/Main-SS-cropped.jpg)](https://scythe-studio.com)
+[![Scythe Studio](./pictures/ss-logo.jpg)](https://scythe-studio.com)
 
 [![Built with Qt](./pictures/built-with-qt.png)](https://qt.io)
 
