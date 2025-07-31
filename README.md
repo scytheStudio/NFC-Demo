@@ -1,5 +1,5 @@
 # NFC Demo
-[![Scythe Studio](./pictures/QtQML-NFC-Demo.jpg)](https://scythe-studio.com/blog/nfc-in-qt-qml-application)
+[![Somco Software](./pictures/Qt%20QML%20NFC%20Demo.png)](https://somcosoftware.com/blog/nfc-in-qt-qml-application)
 This demo presents how to use NFC for communication using Qt framework on mobile platform. Application has simple UI and logic that can be an example of creative NFC usage. Demo presents following features:
 
 - NFC tags detection
@@ -9,7 +9,7 @@ This demo presents how to use NFC for communication using Qt framework on mobile
 
 ---
 
-[![Scythe Studio](./pictures/ss-logo.jpg)](https://scythe-studio.com)
+[![Somco Software](./pictures/ss-logo.jpg)](https://somcosoftware.com)
 
 [![Built with Qt](./pictures/built-with-qt.png)](https://qt.io)
 
@@ -17,7 +17,7 @@ This demo presents how to use NFC for communication using Qt framework on mobile
 
 ## How to use NFC in Qt/Qml application?
 If you need more detailed blog post on NFC topic you can read this 
-[blog post on Scythe Studio blog](https://scythe-studio.com/blog/nfc-in-qt-qml-application). Here we will talk only about NFC tags detection.
+[blog post on Somco Software blog](https://somcosoftware.com/blog/nfc-in-qt-qml-application). Here we will talk only about NFC tags detection.
 
 ### NFC tags detection
 We created a NFCManager class that among other members and methods, have important QNearFieldManager instance saved. Connecting to this object is crucial to control detection and handle signals.
@@ -103,13 +103,13 @@ Once you are done with your NFC feature you can call `stopTargetDetection()` to 
 
 Yeah so that's it. This Readme is already too long, so feel free to visit our blog to discover how to actually read and write messages from/on NFC tags.
 
-## About Scythe Studio
+## About Somco Software
 We’re a team of **Qt and C++ enthusiasts** dedicated to helping businesses build great cross-platform applications. As an official Qt Service Partner, we’ve earned the trust of companies across various industries by delivering high-quality, reliable solutions. With years of experience in **Qt and QML development**, we know how to turn ambitious ideas into outstanding products.
 
 <table style="margin: 0 auto; border:0;">
     <tr style="border:0">
         <td style="border:0">
-            <a href="https://scythe-studio.com">
+            <a href="https://somcosoftware.com">
                 <img width="340" height="150"
                     src="https://user-images.githubusercontent.com/45963332/221174257-c1e1a9d9-0efa-4b25-996b-4b364ccb325c.svg">
             </a>
@@ -121,12 +121,12 @@ We’re a team of **Qt and C++ enthusiasts** dedicated to helping businesses bui
             </a>
         </td>
         <td style="border:0">
-            <a href="https://scythe-studio.com/en/iso">
+            <a href="https://somcosoftware.com/en/iso">
                 <img src="https://github.com/user-attachments/assets/a5388270-4be7-4f37-bbfa-6e41a820ca36">
             </a>
         </td>
         <td style="border:0">
-            <a href="https://scythe-studio.com/en/iso">
+            <a href="https://somcosoftware.com/en/iso">
                 <img src="https://github.com/user-attachments/assets/a5388270-4be7-4f37-bbfa-6e41a820ca36">
             </a>
         </td>
@@ -136,13 +136,13 @@ We’re a team of **Qt and C++ enthusiasts** dedicated to helping businesses bui
 We offer a wide range of services—from brainstorming ideas to delivering polished applications—always tailored to our clients’ needs. By combining deep knowledge of Qt modules and modern technologies with a practical, cost-effective approach, we create solutions that truly make a difference.
 
 ## Professional Support
-Need help with anything? We’ve got you covered. Our professional support services are here to assist you with. For more details about support options and pricing, just drop us a line at https://scythe-studio.com/en/contact.
+Need help with anything? We’ve got you covered. Our professional support services are here to assist you with. For more details about support options and pricing, just drop us a line at https://somcosoftware.com/en/contact.
 
 ## Follow us
-Check out those links if you want to see Scythe Studio in action and follow the newest trends saying about Qt Qml development.
+Check out those links if you want to see Somco Software in action and follow the newest trends saying about Qt Qml development.
 
-* 🌐 [Scythe Studio Website](https://scythe-studio.com/en/)
-* ✍️  [Scythe Studio Blog Website](https://scythe-studio.com/en/blog)
-* 👔 [Scythe Studio LinkedIn Profile](https://www.linkedin.com/company/scythestudio/mycompany/)
-* 👔 [Scythe Studio Facebook Page](https://www.facebook.com/ScytheStudiio)
-* 🎥 [Scythe Studio Youtube Channel](https://www.youtube.com/channel/UCf4OHosddUYcfmLuGU9e-SQ/featured)
+* 🌐 [Somco Software Website](https://somcosoftware.com/en/)
+* ✍️  [Somco Software Blog Website](https://somcosoftware.com/en/blog)
+* 👔 [Somco Software LinkedIn Profile](https://www.linkedin.com/company/scythestudio/mycompany/)
+* 👔 [Somco Software Facebook Page](https://www.facebook.com/ScytheStudiio)
+* 🎥 [Somco Software Youtube Channel](https://www.youtube.com/channel/UCf4OHosddUYcfmLuGU9e-SQ/featured)
